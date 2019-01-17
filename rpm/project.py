@@ -1,3 +1,7 @@
+import os
+from sh import git
+
+
 def create_new_research_project():
     # TODO: implement this method
     # ask user to set a default directory (optional)
@@ -16,10 +20,13 @@ def create_default_directory():
     pass
 
 
-def create_project_directory():
-    # TODO: implement this method
-    # ask user to create a project directory
-    pass
+def create_project_directory(project_name):
+    if not os.path.exists(project_name):
+        print("Creating project {}...".format(project_name))
+        os.mkdir(project_name)
+        print("Created project {}".format(project_name))
+    else:
+        print("Cannot create project {0}; directory {0} already exists".format(project_name))
 
 
 def init_project_directory_with_git():
