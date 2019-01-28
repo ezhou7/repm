@@ -60,18 +60,33 @@ def init_project_directory_with_setup_py(project_name):
 
 
 def init_project_directory_with_data_sub_directory():
-    # TODO: implement this method
     # initialize the new project directory with a data sub-directory
-    pass
+    data_dir = "data"
+    if not os.path.exists(data_dir):
+        print("Creating data directory...")
+        os.mkdir(data_dir)
+        print("Created data directory")
+    else:
+        print("Cannot create /data directory; /data already exists")
 
 
 def init_project_directory_with_config_sub_directory():
-    # TODO: implement this method
     # initialize the new project directory with a config sub-directory
-    pass
+    config_dir = "config"
+    if not os.path.exists(config_dir):
+        print("Creating config directory...")
+        os.mkdir(config_dir)
+        print("Created config directory")
+    else:
+        print("Cannot create /config directory; /config already exists")
 
 
 def init_project_directory_with_resources_sub_directory():
-    # TODO: implement this method
     # initialize the new project directory with a resources sub-directory
-    pass
+    resources_dir = "resources"
+    if not os.path.exists(resources_dir):
+        print("Creating resources directory...")
+        os.mkdir(resources_dir)
+        print("Created resources directory")
+    else:
+        print("Cannot create /resources directory; /resources already exists")
