@@ -2,16 +2,24 @@ import os
 from sh import git
 
 
-def create_new_research_project():
-    # TODO: implement this method
+def create_new_research_project(project_name):
     # ask user to set a default directory (optional)
-    # ask user to create/set a project directory
-    # set up project directory with git and .gitignore
+    create_default_directory()
+    # create/set a project directory
+    create_project_directory(project_name)
+
+    # set up project directory with git
+    init_project_directory_with_git()
+    # set up project directory with .gitignore
+    init_project_directory_with_gitignore(project_name)
     # set up project directory with setup.py
+    init_project_directory_with_setup_py(project_name)
     # set up project directory with data directory
+    init_project_directory_with_data_sub_directory()
     # set up project directory with config/props directory
+    init_project_directory_with_config_sub_directory()
     # set up project directory with resources directory
-    pass
+    init_project_directory_with_resources_sub_directory()
 
 
 def create_default_directory():
@@ -37,22 +45,33 @@ def init_project_directory_with_git():
     git.init()
 
 
+def init_project_directory_with_gitignore(project_name):
+    # initialize the new project directory with .gitignore file
+    with open(".gitignore", "w") as fin:
+        fin.write("build\n")
+        fin.write("dist\n")
+        fin.write("data\n")
+        fin.write("resources\n")
+        fin.write("{}.egg-info\n".format(project_name))
+        fin.write("**/__pycache__/\n")
+
+
 def init_project_directory_with_setup_py(project_name):
     # initialize the new project directory with setup.py
     with open("setup.py", "w") as fin:
         fin.write("from setuptools import setup, find_packages\n")
         fin.write("\n\n")
 
-        fin.write("def setup_package:\n")
+        fin.write("def setup_package():\n")
         fin.write("\tmetadata = dict(\n")
         fin.write("\t\tname=\"{}\",\n".format(project_name))
         fin.write("\t\tversion=\"1.0.0\",\n")
         fin.write("\t\tdescription=\"{}\",\n".format(project_name))
-        fin.write("\t\tpackages=\"find_packages()\",\n")
+        fin.write("\t\tpackages=find_packages(),\n")
         fin.write("\t\tinstall_requires=[]\n")
-        fin.write(")\n")
+        fin.write("\t)\n")
         fin.write("\n")
-        fin.write("setup(**metadata)")
+        fin.write("\tsetup(**metadata)\n")
         fin.write("\n\n")
 
         fin.write("if __name__ == \"__main__\":\n")
