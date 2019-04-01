@@ -2,11 +2,11 @@ import os
 from sh import git
 
 
-def create_new_research_project(project_name):
+def create_new_research_project(workspace_path, project_name):
     # ask user to set a default directory (optional)
     create_default_directory()
     # create/set a project directory
-    create_project_directory(project_name)
+    create_project_directory(workspace_path, project_name)
 
     # set up project directory with git
     init_project_directory_with_git()
@@ -21,6 +21,9 @@ def create_new_research_project(project_name):
     # set up project directory with resources directory
     init_project_directory_with_resources_sub_directory()
 
+    # commit initial setup
+    commit_template()
+
 
 def create_default_directory():
     # TODO: implement this method
@@ -28,16 +31,17 @@ def create_default_directory():
     pass
 
 
-def create_project_directory(project_name):
+def create_project_directory(workspace_path, project_name):
+    project_dir_path = os.path.abspath("{}/{}/".format(workspace_path, project_name))
     # initialize the new project directory
-    if not os.path.exists(project_name):
-        print("Creating project {}...".format(project_name))
-        os.mkdir(project_name)
-        print("Created project {}".format(project_name))
+    if not os.path.exists(project_dir_path):
+        print("Creating project {}...".format(project_dir_path))
+        os.mkdir(project_dir_path)
+        print("Created project {}".format(project_dir_path))
     else:
-        print("Cannot create project {0}; directory {0} already exists".format(project_name))
+        print("Cannot create project {0}; directory {0} already exists".format(project_dir_path))
 
-    os.chdir(project_name)
+    os.chdir(project_dir_path)
 
 
 def init_project_directory_with_git():
@@ -95,6 +99,10 @@ def init_project_directory_with_config_sub_directory():
     if not os.path.exists(config_dir):
         print("Creating config directory...")
         os.mkdir(config_dir)
+        os.chdir(config_dir)
+        with open(".gitkeep", "w") as fin:
+            pass
+        os.chdir("../")
         print("Created config directory")
     else:
         print("Cannot create /config directory; /config already exists")
@@ -109,3 +117,10 @@ def init_project_directory_with_resources_sub_directory():
         print("Created resources directory")
     else:
         print("Cannot create /resources directory; /resources already exists")
+
+
+def commit_template():
+    print("Committing all created files and directories...")
+    git.add(".")
+    git.commit("-m", "\"Initial commit by RPM\"")
+    print("Committed initial commit")
