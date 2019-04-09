@@ -6,8 +6,6 @@ from rpm.package import Setup
 
 
 def create_new_research_project(workspace_path, project_name):
-    # ask user to set a default directory (optional)
-    create_default_directory()
     # create/set a project directory
     create_project_directory(workspace_path, project_name)
 
@@ -26,12 +24,6 @@ def create_new_research_project(workspace_path, project_name):
 
     # commit initial setup
     commit_template()
-
-
-def create_default_directory():
-    # TODO: implement this method
-    # ask user to set a default directory (optional)
-    pass
 
 
 def create_project_directory(workspace_path, project_name):
