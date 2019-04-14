@@ -21,6 +21,8 @@ def create_new_research_project(workspace_path, project_name):
     init_project_directory_with_config_sub_directory()
     # set up project directory with resources directory
     init_project_directory_with_resources_sub_directory()
+    # set up project directory with artifacts directory
+    init_project_directory_with_artifacts_sub_directory()
 
     # commit initial setup
     commit_template()

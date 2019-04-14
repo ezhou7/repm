@@ -8,7 +8,8 @@ class Setup:
         self._imports = [Import("setuptools", sub_imports=["setup", "find_packages"])]
 
     def __str__(self):
-        setup_template_path = os.path.abspath(Path(__file__).resolve().parents[1] + "/resources/setup_template.py")
+        resources_path = str(Path(__file__).resolve().parents[1].absolute())
+        setup_template_path = os.path.abspath(resources_path + "/resources/setup_template.py")
         with open(setup_template_path, "r") as fin:
             setup_template = fin.read()
             return setup_template.format(self._package_name)
