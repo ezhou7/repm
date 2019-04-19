@@ -4,9 +4,9 @@ from setuptools import setup, find_packages
 
 def setup_package():
     metadata = dict(
-        name="rpm",
+        name="repm",
         version="1.0.0",
-        description="rpm",
+        description="repm",
         packages=find_packages(),
         data_files=[
             ("bin", glob("bin/*")),

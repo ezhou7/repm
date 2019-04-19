@@ -1,5 +1,5 @@
 import sys
-from rpm.project import create_new_research_project
+from repm.project import create_new_research_project
 
 
 def main():

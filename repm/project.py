@@ -1,8 +1,8 @@
 import os
 from sh import git
 
-from rpm.dirutils import init_sub_directory
-from rpm.package import Setup
+from repm.dirutils import init_sub_directory
+from repm.package import Setup
 
 
 def create_new_research_project(workspace_path, project_name):
