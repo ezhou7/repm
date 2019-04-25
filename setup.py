@@ -13,8 +13,14 @@ def setup_package():
             ("resources", glob("resources/*"))
         ],
         include_package_data=True,
+        entry_points={
+            "console_scripts": [
+                "repm = repm.__main__:main"
+            ]
+        },
         install_requires=[
-            "sh==1.12.14"
+            "sh",
+            "boto3"
         ]
     )
 

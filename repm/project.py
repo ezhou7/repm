@@ -96,5 +96,5 @@ def init_project_directory_with_artifacts_sub_directory():
 def commit_template():
     print("Committing all created files and directories...")
     git.add(".")
-    git.commit("-m", "\"Initial commit by RPM\"")
+    git.commit("-m", "\"Initial commit by repm\"")
     print("Committed initial commit")
