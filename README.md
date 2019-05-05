@@ -11,9 +11,9 @@ To get started, run `repm <your personal workspace path> <your package name>`.
 Ex. (if you're a fan of PyCharm):
 ```bash
 cd ~/PycharmProjects/
-repm . repm_tutorial
+repm -ws . -p repm_tutorial
 # or you can write...
-repm ~/PycharmProjects/ repm_tutorial
+repm -ws ~/PycharmProjects/ -p repm_tutorial
 ```
 
 That's about it for now, but more will be coming soon.
