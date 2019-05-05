@@ -10,7 +10,7 @@ def download_research_code_package(org_name: str, package_name: str):
 
 def download_research_dataset(org_name: str, dataset_name: str):
     s3_client = boto3.resource("s3")
-    bucket_name = "zephyr/{}/datasets/".format(org_name, dataset_name)
+    bucket_name = "zephyr/{}/datasets/{}".format(org_name, dataset_name)
     bucket = s3_client.Bucket(bucket_name)
     bucket.download_file(dataset_name)
 

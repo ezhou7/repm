@@ -1,5 +1,4 @@
-import os
-from pathlib import Path
+from repm.path import get_resources_item_path
 
 
 class Setup:
@@ -8,8 +7,7 @@ class Setup:
         self._imports = [Import("setuptools", sub_imports=["setup", "find_packages"])]
 
     def __str__(self):
-        resources_path = str(Path(__file__).resolve().parents[1].absolute())
-        setup_template_path = os.path.abspath(resources_path + "/resources/setup_template.py")
+        setup_template_path = get_resources_item_path("setup_template.py")
         with open(setup_template_path, "r") as fin:
             setup_template = fin.read()
             return setup_template.format(self._package_name)

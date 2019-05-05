@@ -1,4 +1,3 @@
-from glob import glob
 from setuptools import setup, find_packages
 
 
@@ -8,19 +7,19 @@ def setup_package():
         version="1.0.0",
         description="repm",
         packages=find_packages(),
-        data_files=[
-            ("bin", glob("bin/*")),
-            ("resources", glob("resources/*"))
-        ],
+        package_data={
+            "repm": ["resources/*"]
+        },
         include_package_data=True,
         entry_points={
             "console_scripts": [
-                "repm = repm.__main__:main"
+                "repm = repm.main:main"
             ]
         },
         install_requires=[
             "sh",
-            "boto3"
+            "boto3",
+            "argparse"
         ]
     )
 
