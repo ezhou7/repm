@@ -6,7 +6,9 @@ and manage your research projects.
 Right now, this is not even alpha version, but it is able to setup a new research
 package in no time.
 
-To get started, run `repm <your personal workspace path> <your package name>`.
+To get started, make sure you have python 3.x installed along with the appropriate pip version.
+Clone this repo, and run `pip install .` to install this CLI.
+To initialize a new project, run `repm --init <your-project-name (optional)>`.
 
 Ex. (if you're a fan of PyCharm):
 ```bash
