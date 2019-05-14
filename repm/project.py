@@ -5,9 +5,9 @@ from repm.dirutils import init_sub_directory
 from repm.package import Setup
 
 
-def create_new_research_project(workspace_path, project_name):
+def create_new_research_project(project_name):
     # create/set a project directory
-    create_project_directory(workspace_path, project_name)
+    create_project_directory(project_name)
 
     # set up project directory with git
     init_project_directory_with_git()
@@ -28,8 +28,8 @@ def create_new_research_project(workspace_path, project_name):
     commit_template()
 
 
-def create_project_directory(workspace_path, project_name):
-    project_dir_path = os.path.abspath("{}/{}/".format(workspace_path, project_name))
+def create_project_directory(project_name):
+    project_dir_path = os.path.abspath("./{}/".format(project_name))
     # initialize the new project directory
     if not os.path.exists(project_dir_path):
         print("Creating project {}...".format(project_dir_path))
