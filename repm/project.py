@@ -55,12 +55,19 @@ def init_project_directory_with_gitignore(project_name):
         fin.write("artifacts\n")
         fin.write("{}.egg-info\n".format(project_name))
         fin.write("**/__pycache__/\n")
+        fin.write(".repm")
 
 
 def init_project_directory_with_setup_py(project_name):
     # initialize the new project directory with setup.py
     with open("setup.py", "w") as fin:
         fin.write(str(Setup(project_name)))
+
+
+def init_project_directory_with_repm_file():
+    # initialize the new project directory with a .repm file
+    with open(".repm", "w") as fin:
+        pass
 
 
 def init_project_directory_with_data_sub_directory():

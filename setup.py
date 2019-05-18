@@ -18,7 +18,7 @@ def setup_package():
         },
         install_requires=[
             "sh",
-            "boto3",
+            "google-cloud-storage",
             "argparse"
         ]
     )
