@@ -15,6 +15,8 @@ def create_new_research_project(project_name):
     init_project_directory_with_gitignore(project_name)
     # set up project directory with setup.py
     init_project_directory_with_setup_py(project_name)
+    # set up project directory with .repm
+    init_project_directory_with_repm_file()
     # set up project directory with data directory
     init_project_directory_with_data_sub_directory()
     # set up project directory with config/props directory
