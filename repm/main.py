@@ -10,7 +10,7 @@ def main():
     arg_parser.add_argument("-i", "--init", help="Initialize current directory as a new research project",
                             nargs="?", action=InitAction)
     download_arg_parser = sub_parsers.add_parser("download")
-    download_arg_parser.add_argument("-a", "--dataset", help="Download the dataset(s) from a project", nargs=2,
+    download_arg_parser.add_argument("-a", "--dataset", help="Download the dataset(s) from a project", nargs=1,
                                      action=DownloadDatasetAction)
     arg_parser.parse_args()
 
@@ -28,10 +28,10 @@ class InitAction(argparse.Action):
 
 class DownloadDatasetAction(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
-        if values is None or len(values) < 2:
-            raise Exception("Must provide the name of an organization and the name of an existing project.")
+        if values is None or len(values) < 1:
+            raise Exception("Must provide the name of an existing project.")
 
-        download_research_dataset(values[0], values[1])
+        download_research_dataset(values[0])
 
 
 if __name__ == "__main__":
