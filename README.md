@@ -27,6 +27,7 @@ Ex. for downloading a dataset (continuing from the initialization example above)
 ```bash
 cd ~/PycharmProjects/repm_tutorial
 repm download -a repm_tutorial_dataset
+# Downloads into the data/ folder within the project.
 ```
 
 That's about it for now, but more will be coming soon.
