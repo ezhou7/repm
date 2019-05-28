@@ -20,6 +20,15 @@ repm --init
 repm --init ~/PycharmProjects/repm_tutorial
 ```
 
+We've added a new feature: downloading datasets.
+To download a dataset, run `repm download -a <your-dataset-name>`.
+
+Ex. for downloading a dataset (continuing from the initialization example above):
+```bash
+cd ~/PycharmProjects/repm_tutorial
+repm download -a repm_tutorial_dataset
+```
+
 That's about it for now, but more will be coming soon.
 
 N.B. If you're wondering why the shorthand looks so weird (`repm` instead of `rpm`),
