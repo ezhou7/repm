@@ -7,21 +7,19 @@ from repm import get_api_url, get_global_file_path
 
 
 def __get_active_session() -> Union[requests.Session, None]:
-    active_session_file_path = get_global_file_path("/active_session.pkl")
-    if not os.path.exists(active_session_file_path):
+    file_path = get_global_file_path("active_session.pkl")
+    if not os.path.exists(file_path) or os.path.getsize(file_path) == 0:
         return None
 
-    with open(active_session_file_path, "r") as fin:
+    with open(file_path, "rb") as fin:
         return pickle.load(fin)
 
 
 def __set_active_session(active_session: Union[requests.Session, None]):
-    active_session_file_path = get_global_file_path("/active_session.pkl")
-    with open(active_session_file_path, "w") as fout:
+    file_path = get_global_file_path("active_session.pkl")
+    with open(file_path, "wb") as fout:
         if active_session:
             pickle.dump(active_session, fout)
-        else:
-            fout.write("")
 
 
 def login(email: str, password: str):
@@ -41,7 +39,7 @@ def login(email: str, password: str):
     if login_res.status_code == 200:
         __set_active_session(session)
         print("Successfully logged in.")
-    elif login_res.status_code == 401:
+    else:
         print(login_res.content)
 
 

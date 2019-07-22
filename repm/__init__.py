@@ -6,7 +6,7 @@ CODE_PACKAGE_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 RESOURCES_ROOT_DIR = os.path.join(CODE_PACKAGE_ROOT_DIR, "resources")
 
-GLOBAL_REPM_DIR = os.path.join(str(Path.home()), "/.repm")
+GLOBAL_REPM_DIR = os.path.join(str(Path.home()), ".repm")
 
 
 def get_global_file_path(relative_file_path: str):
