@@ -51,8 +51,10 @@ def logout():
         print("Already logged out.")
         return
 
+    session_cookies: dict = active_session.cookies.get_dict()
+
     logout_url = get_api_url("/auth/logout")
-    logout_res = active_session.get(logout_url, cookies=active_session.cookies.get_dict())
+    logout_res = active_session.get(logout_url, cookies=session_cookies)
 
     if logout_res.status_code == 200:
         __set_active_session(None)
