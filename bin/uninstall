@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+import os
+
+
+def uninstall_repm():
+    os.system("pip uninstall repm")
+
+
+def remove_hidden_files():
+    os.system("rm -rf .repm")
+
+
+if __name__ == "__main__":
+    uninstall_repm()
+    remove_hidden_files()
