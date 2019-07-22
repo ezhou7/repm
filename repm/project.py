@@ -6,28 +6,18 @@ from repm.package import Setup
 
 
 def create_new_research_project(project_name):
-    # create/set a project directory
     create_project_directory(project_name)
 
-    # set up project directory with git
     init_project_directory_with_git()
-    # set up project directory with .gitignore
     init_project_directory_with_gitignore(project_name)
-    # set up project directory with setup.py
     init_project_directory_with_setup_py(project_name)
-    # set up project directory with .repm
     init_project_directory_with_repm_file()
-    # set up project directory with data directory
     init_project_directory_with_data_sub_directory()
-    # set up project directory with config/props directory
     init_project_directory_with_config_sub_directory()
-    # set up project directory with resources directory
     init_project_directory_with_resources_sub_directory()
-    # set up project directory with artifacts directory
     init_project_directory_with_artifacts_sub_directory()
 
-    # commit initial setup
-    commit_template()
+    commit_project_directory()
 
 
 def create_project_directory(project_name):
@@ -102,7 +92,7 @@ def init_project_directory_with_artifacts_sub_directory():
     init_sub_directory("artifacts")
 
 
-def commit_template():
+def commit_project_directory():
     print("Committing all created files and directories...")
     git.add(".")
     git.commit("-m", "\"Initial commit by repm\"")
