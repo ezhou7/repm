@@ -1,5 +1,6 @@
 import os
 import pickle
+import getpass
 import requests
 from typing import Union
 
@@ -22,11 +23,14 @@ def __set_active_session(active_session: Union[requests.Session, None]):
             pickle.dump(active_session, fout)
 
 
-def login(email: str, password: str):
+def login():
     active_session = __get_active_session()
     if active_session:
         print("Already logged in.")
         return
+
+    email: str = input("Email: ")
+    password: str = getpass.getpass("Password: ")
 
     session = requests.Session()
     login_url = get_api_url("/auth/login")
@@ -57,3 +61,28 @@ def logout():
     if logout_res.status_code == 200:
         __set_active_session(None)
         print("Successfully logged out.")
+    else:
+        print(logout_res.content)
+
+
+def signup():
+    active_session = __get_active_session()
+    if active_session:
+        print("Please log out before signing up for a new account.")
+        return
+
+    email: str = input("Email: ")
+    password: str = getpass.getpass("Password: ")
+
+    active_session = requests.Session()
+    signup_url = get_api_url("/auth/signup")
+    signup_details = {
+        "email": email,
+        "password": password
+    }
+    signup_res = active_session.post(signup_url, data=signup_details)
+
+    if signup_res.status_code == 200:
+        pass
+    else:
+        print(signup_res.content)
