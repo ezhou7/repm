@@ -3,7 +3,7 @@ import argparse
 from repm.project import create_new_research_project
 from repm.download import download_dataset
 from repm.upload import upload_dataset
-from repm.auth import login, logout
+from repm.auth import login, logout, signup
 
 
 def main():
@@ -14,6 +14,7 @@ def main():
                             nargs="?", action=InitAction)
     arg_parser.add_argument("-l", "--login", help="Login with a username and password", nargs=0, action=LoginAction)
     arg_parser.add_argument("-o", "--logout", help="Logout of a session", nargs=0, action=LogoutAction)
+    arg_parser.add_argument("-s", "--signup", help="Signup with a username and password", nargs=0, action=SignupAction)
 
     sub_parsers = arg_parser.add_subparsers()
 
@@ -45,6 +46,11 @@ class LoginAction(argparse.Action):
 class LogoutAction(argparse.Action):
     def __call__(self, *args, **kwargs):
         logout()
+
+
+class SignupAction(argparse.Action):
+    def __call__(self, *args, **kwargs):
+        signup()
 
 
 class DownloadDatasetAction(argparse.Action):

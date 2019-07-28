@@ -44,7 +44,7 @@ def login():
         __set_active_session(session)
         print("Successfully logged in.")
     else:
-        print(login_res.content)
+        print(login_res.content.decode("utf-8"))
 
 
 def logout():
@@ -62,7 +62,7 @@ def logout():
         __set_active_session(None)
         print("Successfully logged out.")
     else:
-        print(logout_res.content)
+        print(logout_res.content.decode("utf-8"))
 
 
 def signup():
@@ -81,8 +81,4 @@ def signup():
         "password": password
     }
     signup_res = active_session.post(signup_url, data=signup_details)
-
-    if signup_res.status_code == 200:
-        pass
-    else:
-        print(signup_res.content)
+    print(signup_res.content.decode("utf-8"))

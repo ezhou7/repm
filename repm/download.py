@@ -15,7 +15,9 @@ def download_dataset(dataset_name: str):
     else:
         raise Exception("Not within a repm project")
 
-    return __download_zip(dataset_name, download_url, download_path)
+    print("Downloading...")
+    download_path = __download_zip(dataset_name, download_url, download_path)
+    print("Finished download: {}".format(download_path))
 
 
 def __download_zip(dataset_name: str, url: str, download_path: str):
