@@ -18,7 +18,6 @@ ls -la ./repm_tutorial
 # Or open the workspace with whichever IDE to see the workspace structure
 ```
 
-We've added a new feature: downloading datasets.
 To download a dataset, run `repm download -a <your-dataset-name>`.
 
 Ex. for downloading a dataset (continuing from the example above):
@@ -27,6 +26,14 @@ cd ~/PycharmProjects/repm_tutorial
 repm download -a repm_tutorial_dataset
 # Downloads into the data/ folder within the project.
 ```
+
+New feature: authorization.
+Downloading datasets can't work if you can't upload anything.
+Authorization is meant to support uploading your own datasets.
+
+To create an account, run `repm --signup`.
+To login, run `repm --login`.
+To logout, run `repm --logout`.
 
 That's about it for now, but more will be coming soon.
 
