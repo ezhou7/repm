@@ -5,12 +5,13 @@ from pathlib import Path
 
 
 def install_repm():
-    os.system("pip install repm")
+    os.system("pip install .")
 
 
 def setup_hidden_files():
     repm_dir = os.path.join(str(Path.home()), ".repm")
-    os.mkdir(repm_dir)
+    if not os.path.exists(repm_dir):
+        os.mkdir(repm_dir)
 
     with open(os.path.join(repm_dir, "repm.json"), "w") as fin:
         fin.write("{}\n")

@@ -7,7 +7,7 @@ Right now, this is not even alpha version, but it is able to setup a new researc
 package in no time.
 
 To get started, make sure you have python 3.x installed along with the appropriate pip version.
-Clone this repo, and run `pip install .` to install this CLI.
+Clone this repo, and run `python ./bin/install` to install this CLI.
 To initialize a new project, run `repm --init <your-project-name (optional)>`.
 
 Ex. (if you're a fan of PyCharm):
@@ -35,7 +35,7 @@ To create an account, run `repm --signup`.
 To login, run `repm --login`.
 To logout, run `repm --logout`.
 
-That's about it for now, but more will be coming soon.
+Upload feature is coming next.
 
 N.B. If you're wondering why the shorthand looks so weird (`repm` instead of `rpm`),
 it's because `rpm` has already been taken.
