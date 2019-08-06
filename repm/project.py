@@ -5,7 +5,7 @@ from repm.dirutils import init_sub_directory
 from repm.package import Setup
 
 
-def create_new_research_project(project_name):
+def create_new_research_project(project_name: str):
     create_project_directory(project_name)
 
     init_project_directory_with_git()
@@ -20,8 +20,8 @@ def create_new_research_project(project_name):
     commit_project_directory()
 
 
-def create_project_directory(project_name):
-    project_dir_path = os.path.abspath("./{}/".format(project_name))
+def create_project_directory(project_name: str):
+    project_dir_path: str = os.path.abspath("./{}/".format(project_name))
     # initialize the new project directory
     if not os.path.exists(project_dir_path):
         print("Creating project {}...".format(project_dir_path))
@@ -38,7 +38,7 @@ def init_project_directory_with_git():
     git.init()
 
 
-def init_project_directory_with_gitignore(project_name):
+def init_project_directory_with_gitignore(project_name: str):
     # initialize the new project directory with .gitignore file
     with open(".gitignore", "w") as fin:
         fin.write("build\n")
@@ -50,7 +50,7 @@ def init_project_directory_with_gitignore(project_name):
         fin.write(".repm.json")
 
 
-def init_project_directory_with_setup_py(project_name):
+def init_project_directory_with_setup_py(project_name: str):
     # initialize the new project directory with setup.py
     with open("setup.py", "w") as fin:
         fin.write(str(Setup(project_name)))

@@ -1,14 +1,14 @@
 import os
 import pickle
 import getpass
-import requests
 from typing import Union
+from requests import Session, Response
 
 from repm import get_api_url, get_global_file_path
 
 
-def __get_active_session() -> Union[requests.Session, None]:
-    file_path = get_global_file_path("active_session.pkl")
+def __get_active_session() -> Union[Session, None]:
+    file_path: str = get_global_file_path("active_session.pkl")
     if not os.path.exists(file_path) or os.path.getsize(file_path) == 0:
         return None
 
@@ -16,8 +16,8 @@ def __get_active_session() -> Union[requests.Session, None]:
         return pickle.load(fin)
 
 
-def __set_active_session(active_session: Union[requests.Session, None]):
-    file_path = get_global_file_path("active_session.pkl")
+def __set_active_session(active_session: Union[Session, None]):
+    file_path: str = get_global_file_path("active_session.pkl")
     with open(file_path, "wb") as fout:
         if active_session:
             pickle.dump(active_session, fout)
@@ -32,7 +32,7 @@ def login():
     email: str = input("Email: ")
     password: str = getpass.getpass("Password: ")
 
-    session = requests.Session()
+    session = Session()
     login_url = get_api_url("/auth/login")
     login_details = {
         "email": email,
@@ -55,8 +55,8 @@ def logout():
 
     session_cookies: dict = active_session.cookies.get_dict()
 
-    logout_url = get_api_url("/auth/logout")
-    logout_res = active_session.get(logout_url, cookies=session_cookies)
+    logout_url: str = get_api_url("/auth/logout")
+    logout_res: Response = active_session.get(logout_url, cookies=session_cookies)
 
     if logout_res.status_code == 200:
         __set_active_session(None)
@@ -74,11 +74,11 @@ def signup():
     email: str = input("Email: ")
     password: str = getpass.getpass("Password: ")
 
-    active_session = requests.Session()
-    signup_url = get_api_url("/auth/signup")
+    active_session = Session()
+    signup_url: str = get_api_url("/auth/signup")
     signup_details = {
         "email": email,
         "password": password
     }
-    signup_res = active_session.post(signup_url, data=signup_details)
+    signup_res: Response = active_session.post(signup_url, data=signup_details)
     print(signup_res.content.decode("utf-8"))

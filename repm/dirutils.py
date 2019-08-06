@@ -12,7 +12,7 @@ def init_sub_directory(dir_name: str):
 
 
 def get_repm_project_root_directory() -> Union[str, None]:
-    cwd = os.path.abspath(os.getcwd())
+    cwd: str = os.path.abspath(os.getcwd())
     while cwd != "/":
         in_repm_project = any(os.path.basename(file) == ".repm.json" for file in os.listdir(cwd))
         if in_repm_project:
