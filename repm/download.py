@@ -7,7 +7,7 @@ from repm.dirutils import get_repm_project_root_directory
 
 
 def download_dataset(dataset_name: str):
-    download_url = get_api_url("/datasets")
+    download_url = get_api_url("/dataset")
 
     project_root_path = get_repm_project_root_directory()
     if project_root_path:
@@ -21,7 +21,8 @@ def download_dataset(dataset_name: str):
 
 
 def __download_zip(dataset_name: str, url: str, download_path: str):
-    with requests.get(url, params={"bucketName": dataset_name}, stream=True) as response:
+    download_params = {"bucketName": dataset_name}
+    with requests.get(url, params=download_params, stream=True) as response:
         response.raise_for_status()
         zip_path = download_path[:-1] + ".zip"
 

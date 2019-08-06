@@ -16,7 +16,7 @@ def get_global_file_path(relative_file_path: str) -> str:
     return os.path.join(GLOBAL_REPM_DIR, relative_file_path)
 
 
-SERVER_API_URL = "http://localhost:8080/api"
+SERVER_API_URL = "https://repm.io/api"
 
 
 def get_api_url(api_path: str) -> str:

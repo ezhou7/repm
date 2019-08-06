@@ -50,7 +50,7 @@ def login():
 def logout():
     active_session = __get_active_session()
     if not active_session:
-        print("Already logged out.")
+        print("Not logged in.")
         return
 
     session_cookies: dict = active_session.cookies.get_dict()
