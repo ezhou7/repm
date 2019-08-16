@@ -9,8 +9,20 @@ package in no time.
 
 To get started, make sure you have Python 3.7 installed.
 
+N.B. If you're wondering why the shorthand looks so weird (`repm` instead of `rpm`),
+it's because `rpm` has already been taken.
+
 ## Installation
 Clone this repo, and run `python ./bin/install` to install this CLI.
+
+## New feature: Upload
+To upload a dataset, run `repm upload -a <your-dataset-name>`.
+
+Ex. for uploading a dataset:
+```bash
+cd ~/PycharmProjects/repm_tutorial
+repm upload -a repm_tutorial_dataset
+```
 
 ## Project Creation
 To initialize a new project, run `repm --init <your-project-name (optional)>`.
@@ -48,14 +60,6 @@ To login, run `repm --login`.
 
 To logout, run `repm --logout`.
 
-## New feature: Upload
-To upload a dataset, run `repm upload -a <your-dataset-name>`.
-
-Ex. for uploading a dataset:
-```bash
-cd ~/PycharmProjects/repm_tutorial
-repm upload -a repm_tutorial_dataset
-```
-
-N.B. If you're wondering why the shorthand looks so weird (`repm` instead of `rpm`),
-it's because `rpm` has already been taken.
+## Next up
+- Dataset permissions
+- Dataset listing
