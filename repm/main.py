@@ -66,7 +66,7 @@ class UploadDatasetAction(argparse.Action):
         if values is None or len(values) < 1:
             raise Exception("Must provide the name of an existing project.")
 
-        upload_dataset()
+        upload_dataset(values[0])
 
 
 if __name__ == "__main__":
