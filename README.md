@@ -1,11 +1,7 @@
 Research Package Manager
 =========
 
-This package is a small package manager to help more easily setup
-and manage your research projects.
-
-Right now, this is not even alpha version, but it is able to setup a new research
-package in no time.
+This package is a lightweight package manager to help setup and manage your research projects.
 
 To get started, make sure you have Python 3.7 installed.
 
@@ -18,10 +14,11 @@ Clone this repo, and run `python ./bin/install` to install this CLI.
 ## New feature: Upload
 To upload a dataset, run `repm upload -a <your-dataset-name>`.
 
-Ex. for uploading a dataset:
+Ex.:
 ```bash
 cd ~/PycharmProjects/repm_tutorial
 repm upload -a repm_tutorial_dataset
+# Uploads the dataset from the data/ folder
 ```
 
 ## Project Creation
@@ -43,7 +40,7 @@ repm --init
 ## Download
 To download a dataset, run `repm download -a <your-dataset-name>`.
 
-Ex. for downloading a dataset:
+Ex.:
 ```bash
 cd ~/PycharmProjects/repm_tutorial
 repm download -a repm_tutorial_dataset
