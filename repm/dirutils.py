@@ -1,5 +1,5 @@
 import os
-from typing import Union
+from typing import Optional
 
 
 def init_sub_directory(dir_name: str):
@@ -11,7 +11,7 @@ def init_sub_directory(dir_name: str):
         print("Cannot create /{0} sub-directory; /{0} already exists".format(dir_name))
 
 
-def get_repm_project_root_directory() -> Union[str, None]:
+def get_repm_project_root_directory() -> Optional[str]:
     cwd: str = os.path.abspath(os.getcwd())
     while cwd != "/":
         in_repm_project = any(os.path.basename(file) == ".repm.json" for file in os.listdir(cwd))
