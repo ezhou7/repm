@@ -35,7 +35,7 @@ class InitAction(argparse.Action):
         if values is not None and os.path.exists(project_path):
             raise Exception("Path {} already exists. Please choose a different project name.".format(project_path))
 
-        create_new_research_project(values)
+        create_new_research_project(values[0])
 
 
 class LoginAction(argparse.Action):
