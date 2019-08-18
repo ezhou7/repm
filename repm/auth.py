@@ -54,9 +54,8 @@ def login():
 
     if login_res.status_code == 200:
         __set_active_session(session)
-        print("Successfully logged in.")
-    else:
-        print(login_res.content.decode("utf-8"))
+
+    print(login_res.content.decode("utf-8"))
 
 
 def logout():
@@ -72,9 +71,8 @@ def logout():
 
     if logout_res.status_code == 200:
         __set_active_session(None)
-        print("Successfully logged out.")
-    else:
-        print(logout_res.content.decode("utf-8"))
+
+    print(logout_res.content.decode("utf-8"))
 
 
 def signup():
