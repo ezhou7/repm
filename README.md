@@ -14,6 +14,9 @@ Clone this repo, and run `python ./bin/install` to install this CLI.
 ## New feature: Dataset Listing
 To list all the available datasets for downloading, run `repm --list`.
 
+## Update: Dataset Permissions
+Only owners of datasets can upload respective datasets.
+
 ## Project Creation
 To initialize a new project, run `repm --init <your-project-name (optional)>`.
 
@@ -59,6 +62,3 @@ cd ~/PycharmProjects/repm_tutorial
 repm upload -a repm_tutorial_dataset
 # Uploads the dataset from the data/ folder
 ```
-
-## Next up
-- Dataset permissions
