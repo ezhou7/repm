@@ -38,3 +38,6 @@ def upload_dataset(dataset_name: str):
             cookies=session_cookies
         )
         print(res.content.decode("utf-8"))
+
+        if res.status_code != 200:
+            break
