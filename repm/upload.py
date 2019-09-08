@@ -2,12 +2,12 @@ import os
 
 from repm import get_api_url
 from repm.dirutils import get_repm_project_root_directory
-from repm.auth import __get_active_session, __is_active_session_valid
+from repm.auth import get_active_session, is_active_session_valid
 
 
 def upload_dataset(dataset_name: str):
-    active_session = __get_active_session()
-    if not __is_active_session_valid(active_session):
+    active_session = get_active_session()
+    if not is_active_session_valid(active_session):
         print("You must login before uploading any data.")
         return
 
