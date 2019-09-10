@@ -18,7 +18,6 @@ def setup_package():
         },
         install_requires=[
             "sh",
-            "google-cloud-storage",
             "argparse"
         ]
     )
