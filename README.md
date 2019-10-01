@@ -11,11 +11,8 @@ it's because `rpm` has already been taken.
 ## Installation
 Clone this repo, and run `python ./bin/install` to install this CLI.
 
-## New feature: Dataset Listing
-To list all the available datasets for downloading, run `repm --list`.
-
-## Update: Dataset Permissions
-Only owners of datasets can upload respective datasets.
+## New feature: Website
+Visit our website: https://repm.io
 
 ## Project Creation
 To initialize a new project, run `repm --init <your-project-name (optional)>`.
@@ -56,9 +53,14 @@ To logout, run `repm --logout`.
 ## Upload
 To upload a dataset, run `repm upload -a <your-dataset-name>`.
 
+Only owners of datasets can upload respective datasets.
+
 Ex.:
 ```bash
 cd ~/PycharmProjects/repm_tutorial
 repm upload -a repm_tutorial_dataset
 # Uploads the dataset from the data/ folder
 ```
+
+## Dataset Listing
+To list all the available datasets for downloading, run `repm --list`.
